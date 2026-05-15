@@ -10,14 +10,6 @@ playIconContainer.addEventListener('click', () => {
     if (playState === 'play') {
         audio.play();
         playState = 'pause';
-
-        let interval = setInterval(() => {
-            if(playState === 'play') {
-                whilePlaying();
-            } else{
-                clearInterval(interval);
-            }
-        }, 1000);
     }
     else {
         audio.pause();
@@ -74,6 +66,7 @@ if (audio.readyState === 4) {
 }
 
 audio.addEventListener('progress', displayBufferedAmount);
+audio.addEventListener('timeupdate', whilePlaying);
 
 seekSlider.addEventListener('input', () => {
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
