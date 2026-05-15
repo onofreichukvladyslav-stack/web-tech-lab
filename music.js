@@ -7,9 +7,17 @@ const audio = document.querySelector('audio');
 let playState = 'play';
 
 playIconContainer.addEventListener('click', () => {
-    if (playState === 'play'){
+    if (playState === 'play') {
         audio.play();
         playState = 'pause';
+
+        let interval = setInterval(() => {
+            if(playState === 'play') {
+                whilePlaying();
+            } else{
+                clearInterval(interval);
+            }
+        }, 1000);
     }
     else {
         audio.pause();
@@ -17,12 +25,16 @@ playIconContainer.addEventListener('click', () => {
     }
 });
 
-const showRangeProgress = (rangeInput) =>{
+const showRangeProgress = (rangeInput) => {
     if (rangeInput === seekSlider) audioPlayContainer.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
     else audioPlayContainer.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
 }
 
-const calculateTime = (secs) =>{
+seekSlider.addEventListener('input', (e) => {
+    showRangeProgress(e.target);
+});
+
+const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
     const seconds = Math.floor(secs % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
@@ -33,23 +45,23 @@ const displayDuration = () => {
     durationContainer.textContent = calculateTime(audio.duration);
 }
 
-const setSliderMax = () =>{
+const setSliderMax = () => {
     seekSlider.max = Math.floor(audio.duration);
 }
 
 const displayBufferedAmount = () => {
     const bufferedAmount = Math.floor(audio.buffered.end(audio.buffered.length - 1));
 
-    audioPlayContainer.style.setProperty('-buffered-width', `${(bufferedAmount / seekSlider.max) * 100}%`);
+    audioPlayContainer.style.setProperty('--buffered-width', `${(bufferedAmount / seekSlider.max) * 100}%`);
 }
 
 const whilePlaying = () => {
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
-    audioPlayerContainer.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
+    audioPlayContainer.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
 }
 
-if (audio.readyState > 0) {
+if (audio.readyState === 4) {
     displayDuration();
     setSliderMax();
     displayBufferedAmount();
