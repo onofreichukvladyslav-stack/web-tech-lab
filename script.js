@@ -36,5 +36,5 @@ document.getElementById('btnSignUp').onclick = function() {
 };
 
 document.getElementById('ts').onclick = function(){
-    location.href = "music.html";
+    location.href = "ts.html";
 };
