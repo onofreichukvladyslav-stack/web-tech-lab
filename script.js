@@ -1,39 +1,62 @@
-let buttonsignin = document.getElementById('btnSignIn');
-let buttonmusic = document.getElementById('ts');
-let div = document.createElement('div');
+const modal = document.getElementById('authModal');
+const closeModalBtn = document.getElementById('closeModal');
+const buttonSignIn = document.getElementById('btnSignIn');
 
-// if (button.click){
-//     <div>
-//         <search>login</search>
-        
-//     </div>
-// }
+const regModal = document.getElementById('regModal');
+const buttonSignUp = document.getElementById('btnSignUp');
+const closeRegModalBtn = document.getElementById('closeRegModal');
 
-function addLogin(){
-    let headerlogin = document.getElementById('signin');
-    let inputlogin = document.createElement('input');
-    div.appendChild(inputlogin);
-    headerlogin.appendChild(div);
-}
+const buttonmusic = document.getElementById('ts');
 
-function addPassword(){
-    let headerpass = document.getElementById('signin');
-    let inputpass = document.createElement('input');
-    let br = document.createElement("br");
-    div.appendChild(br);
-    div.appendChild(inputpass);
-    headerpass.appendChild(div);
-}
+buttonSignIn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+});
+
+closeModalBtn.addEventListener('click', () =>{
+    modal.classList.add('hidden');
+});
+
+document.getElementById('loginForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    modal.classList.add('hidden');
+});
+
+buttonSignUp.addEventListener('click', () => {
+    regModal.classList.remove('hidden');
+});
+
+closeRegModalBtn.addEventListener('click', () => {
+    regModal.classList.add('hidden');
+});
+
+document.getElementById('regForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById('regEmail').value;
+    const emailConfirm = document.getElementById('regEmailConfirm').value;
+
+    const emailError = document.getElementById('emailError');
+    emailError.textContent = "";
+
+    if (email !== emailConfirm){
+        emailError.textContent = "Email doesn't match!";
+        return;
+    }
 
 
-buttonsignin.addEventListener('click', () => {
-    addLogin();
-    addPassword();
+    alert('Registered successful!');
+    regModal.classList.add('hidden');
+    document.getElementById('regForm').reset();
+});
+
+window.addEventListener('click', () => {
+    if (event.target === modal) modal.classList.add('hidden');
+    if (event.target === regModal) regModal.classList.add('hidden');
+});
+
+document.getElementById('regEmailConfirm').addEventListener('input', () => {
+    document.getElementById('emailError').textContent = "";
 })
-
-document.getElementById('btnSignUp').onclick = function() {
-    location.href = "form.html";
-};
 
 document.getElementById('ts').onclick = function(){
     location.href = "ts.html";

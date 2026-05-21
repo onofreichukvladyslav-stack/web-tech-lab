@@ -1,0 +1,86 @@
+#audio-player-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: max-content;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+#audio-player-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2sm tranform 0.1s;
+}
+
+#audio-player-container button:hover {
+    background-color: #e9ecef;
+}
+
+#audio-player-container button:active {
+    transform: scale(0.95);
+}
+
+#audio-player-container button svg path {
+    stroke: #333;
+    fill: #333;
+}
+
+#current-time, #duration, #volume-output, #audio-player-container {
+    color: #495057;
+    font-size: 14px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+#seek-slider, #volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    height: 20px;
+}
+
+#seek-slider::-webkit-slider-runnable-track,
+#volume-slider::-webkit-slider-runnable-track {
+    background: #e9ecef;
+    height: 6px;
+    border-radius: 3px;
+}
+
+#seek-slider::-webkit-slider-thumb,
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    background-color: #007bff;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 123, 255, 0.4);
+    transition: transform 0.1s, background-color 0.1s;
+}
+
+#seek-slider:hover::-webkit-slider-thumb,
+#volume-slider:hover::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background-color: #0056b3;
+}
+
+#seek-slider {
+    width: 180px;
+}
+
+#volume-slider {
+    width: 80px;
+}

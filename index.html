@@ -13,7 +13,6 @@
         <button id="news">News</button>
         <button id="discover">Discover</button>
         <button id="about-us">About Us</button>
-        <button></button>
         <div class="not-auth">
             <button id="btnSignIn">Sign in</button>
             <button id="btnSignUp">Sign up</button>
@@ -22,16 +21,66 @@
     </header>
     <h1>Start page</h1>
 
-    <section class="">
+    <section class="songs">
         <button id="ts">
-            <img src="" alt="">
+            <img src="" alt="Thousand Leaves - Twilight Symphony">
             <h3>Twilight Symphony</h3>
             <p>Thousand Leaves</p>
         </button>
     </section>
+
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+            
+            <h2>Authorization</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter login" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn-submit">SignIn</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="regModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeRegModal" class="close-btn">&times;</span>
+
+            <h2>Registration</h2>
+            <form id="regForm">
+                <div class="input-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" placeholder="Create username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="Create password" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="regEmail">Email</label>
+                    <input type="text" id="regEmail" placeholder="Enter email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="regEmailConfirm">Confirm Email</label>
+                    <input type="text" id="regEmailConfirm" placeholder="Enter email again" required>
+                </div>
+                <span id="emailError" class="error-message"></span>
+                <button type="submit" class="btn-submit">Register</button>
+            </form>
+        </div>
+    </div>
     <!-- <footer>
         
     </footer> -->
 </body>
-<script src="script.js"></script>
+<script src="./script.js"></script>
 </html>
