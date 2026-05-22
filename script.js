@@ -32,6 +32,17 @@ closeRegModalBtn.addEventListener('click', () => {
 document.getElementById('regForm').addEventListener('submit', (event) => {
     event.preventDefault();
 
+    const pass = document.getElementById('password');
+    const repPass = document.getElementById('regRepeatPassword');
+    const passError = document.getElementById('passError');
+
+    passError.textContent = "";
+
+    if (pass !== repPass) {
+        passError.textContent = "Password doesn't match!";
+        return;
+    }
+
     const email = document.getElementById('regEmail').value;
     const emailConfirm = document.getElementById('regEmailConfirm').value;
 
