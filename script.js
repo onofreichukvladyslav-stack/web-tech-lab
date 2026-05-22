@@ -6,7 +6,7 @@ const regModal = document.getElementById('regModal');
 const buttonSignUp = document.getElementById('btnSignUp');
 const closeRegModalBtn = document.getElementById('closeRegModal');
 
-const buttonmusic = document.getElementById('ts');
+
 
 buttonSignIn.addEventListener('click', () => {
     modal.classList.remove('hidden');
@@ -32,8 +32,8 @@ closeRegModalBtn.addEventListener('click', () => {
 document.getElementById('regForm').addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const pass = document.getElementById('password');
-    const repPass = document.getElementById('regRepeatPassword');
+    const pass = document.getElementById('regPassword').value;
+    const repPass = document.getElementById('regRepeatPassword').value;
     const passError = document.getElementById('passError');
 
     passError.textContent = "";
@@ -42,12 +42,13 @@ document.getElementById('regForm').addEventListener('submit', (event) => {
         passError.textContent = "Password doesn't match!";
         return;
     }
-
+    
     const email = document.getElementById('regEmail').value;
     const emailConfirm = document.getElementById('regEmailConfirm').value;
 
     const emailError = document.getElementById('emailError');
     emailError.textContent = "";
+
 
     if (email !== emailConfirm){
         emailError.textContent = "Email doesn't match!";
@@ -65,10 +66,22 @@ window.addEventListener('click', () => {
     if (event.target === regModal) regModal.classList.add('hidden');
 });
 
+document.getElementById('regRepeatPassword').addEventListener('input', () => {
+    document.getElementById('passError').textContent = "";
+});
+
 document.getElementById('regEmailConfirm').addEventListener('input', () => {
     document.getElementById('emailError').textContent = "";
-})
+});
 
 document.getElementById('ts').onclick = function(){
     location.href = "ts.html";
+};
+
+document.getElementById('tgos').onclick = function(){
+    location.href = "tgos.html";
+};
+
+document.getElementById('hzh').onclick = function(){
+    location.href = "hzh.html";
 };

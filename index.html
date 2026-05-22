@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,9 +23,19 @@
 
     <section class="songs">
         <button id="ts">
-            <img src="" alt="Thousand Leaves - Twilight Symphony">
+            <img src="./img/Twilight Symphony.jpg" alt="Thousand Leaves - Twilight Symphony">
             <h3>Twilight Symphony</h3>
             <p>Thousand Leaves</p>
+        </button>
+        <button id="tgos">
+            <img src="./img/The Gates of Shambhala.jpg" alt="Nameless One - The Gates of Shambhala">
+            <h3>The Gates of Shambhala</h3>
+            <p>Nameless One</p>
+        </button>
+        <button id="hzh">
+            <img src="./img/hay zeleniy hay.jpg" alt="Назарій Яремчук - Гай, зелений гай">
+            <h3>Гай, зелений гай</h3>
+            <p>Назарій Яремчук</p>
         </button>
     </section>
 
@@ -55,27 +65,27 @@
             <h2>Registration</h2>
             <form id="regForm">
                 <div class="input-group">
-                    <label for="regUsername">Username</label>
+                    <label for="regUsername">Username*</label>
                     <input type="text" id="regUsername" placeholder="Create username" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="regPassword">Password</label>
+                    <label for="regPassword">Password*</label>
                     <input type="password" id="regPassword" placeholder="Create password" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="regRepeatPassword">Password</label>
-                    <input type="password" id="regPassword" placeholder="Repeat password" required>
+                    <label for="regRepeatPassword">Confirm Password*</label>
+                    <input type="password" id="regRepeatPassword" placeholder="Repeat password" required>
                 </div>
                 <span id="passError" class="error-message"></span>
                 <div class="input-group">
-                    <label for="regEmail">Email</label>
+                    <label for="regEmail">Email*</label>
                     <input type="text" id="regEmail" placeholder="Enter email" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="regEmailConfirm">Confirm Email</label>
+                    <label for="regEmailConfirm">Confirm Email*</label>
                     <input type="text" id="regEmailConfirm" placeholder="Enter email again" required>
                 </div>
                 <span id="emailError" class="error-message"></span>
